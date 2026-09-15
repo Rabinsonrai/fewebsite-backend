@@ -6,6 +6,7 @@ const cors = require("cors");
 const { runMigrations } = require("./db");
 const questionsRouter = require("./routes/questions");
 const scoresRouter = require("./routes/scores");
+const vocabularyRouter = require("./routes/vocabulary");
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -15,6 +16,7 @@ app.use(express.json());
 
 app.use("/api/questions", questionsRouter);
 app.use("/api/scores", scoresRouter);
+app.use("/api/vocabulary", vocabularyRouter);
 
 app.get("/api/health", (req, res) => {
     res.json({ status: "ok" });

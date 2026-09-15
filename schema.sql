@@ -24,5 +24,14 @@ CREATE TABLE IF NOT EXISTS scores (
     created_at TIMESTAMP DEFAULT NOW()
 );
 
+CREATE TABLE IF NOT EXISTS vocabulary (
+    id SERIAL PRIMARY KEY,
+    word VARCHAR(100) NOT NULL,
+    meaning TEXT NOT NULL,
+    example_sentence TEXT NOT NULL,
+    created_at TIMESTAMP DEFAULT NOW()
+);
+
 CREATE INDEX IF NOT EXISTS idx_questions_exam ON questions(exam);
 CREATE INDEX IF NOT EXISTS idx_scores_user ON scores(user_id);
+CREATE INDEX IF NOT EXISTS idx_vocabulary_word ON vocabulary(word);
